@@ -10,8 +10,8 @@ const MealPlanView = (props) => {
   );
 };
 
-MealPlanView.propTypes = {
-  meal: PropTypes.array.isRequired,
-};
+// MealPlanView.propTypes = {
+//   meal: PropTypes.array.isRequired,
+// };
 
 export default MealPlanView;

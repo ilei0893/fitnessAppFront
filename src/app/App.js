@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import RoutesContainer from "../components/routes/RoutesContainer";
 import {NavBarContainer, RegisterContainer} from "../components/containers/";
 import {LoginContainer} from "../components/containers/LoginContainer"
+
 class App extends Component {
   render() {
     return (
