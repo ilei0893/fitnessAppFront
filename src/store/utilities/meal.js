@@ -18,7 +18,7 @@ export const addFoodThunk = (food, ownProps) => (dispatch) => {
     .then((res) => res.data)
     .then((newFood) => {
       const tweakedFood = { ...newFood, food: [] };
-      dispatch(addStudent(tweakedFood));
+      dispatch(addMeal(tweakedFood));
       ownProps.history.push(`/food/${newFood.id}`);
     })
     .catch((err) => console.log(err));
