@@ -5,10 +5,13 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 // Individual reducers altogether under an alias;
-import * as reducers from '../reducers';
+// import * as reducers from '../reducers';
+import {reducer as formReducer} from "redux-form" 
 
 // Construct our Redux store;
-const rootReducer = combineReducers(reducers);
+const rootReducer = combineReducers({
+    form : formReducer,
+});
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger));
 const store = createStore(rootReducer, middleware);

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const MealPlanView = (props) => {
   return (
     <div className="meal-plan">
-      <h1>{meal.name}</h1>
+      {/* <h1>{meal.name}</h1> */}
     </div>
   );
 };
