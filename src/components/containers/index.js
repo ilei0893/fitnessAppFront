@@ -2,3 +2,4 @@
 export { default as MealPlanContainer } from './MealPlanContainer';
 export { default as NavBarContainer } from "./NavBarContainer";
 export { default as RegisterContainer} from "./RegisterContainer"
+export { default as LoginContainer} from "./LoginContainer"
