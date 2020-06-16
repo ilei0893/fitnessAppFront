@@ -3,4 +3,3 @@ export { default as MealPlanView } from './MealPlanView';
 export { default as NavBarView } from "./NavBarView";
 export {default as LoginView } from "./LoginView";
 
-

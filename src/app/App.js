@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {LoginContainer} from "../components/containers"
+import {NavBarContainer} from "../components/containers/"
+
 
 class App extends Component {
   render() {
@@ -8,7 +10,7 @@ class App extends Component {
       <div className="app">
         <header className="app-header">
           <LoginContainer/>
-          
+          < NavBarContainer/>
         </header>
       </div>
     );
