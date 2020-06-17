@@ -1,36 +1,37 @@
 import axios from 'axios';
 
 // ACTION TYPES;
-const ADD_MEAL = "ADD_MEAL";
+const SHOW_MEAL = "SHOW_MEAL";
 
 // ACTION CREATORS;
-const addMeal = meal => {
+const showMeal = meal => {
   return {
-    type: ADD_MEAL,
+    type: SHOW_MEAL,
     payload: meal
   }
 }
 
 // THUNK CREATORS;
-export const addFoodThunk = (food, ownProps) => (dispatch) => {
-  return axios
-    .post("/api/food", food)
+export const showMealThunk = () => (dispatch) => {
+     axios
+    .get("https://jsonplaceholder.typicode.com/users")
     .then((res) => res.data)
     .then((newFood) => {
+      console.log('$$$$$$$$',newFood,'$$$$$$$$$')
       const tweakedFood = { ...newFood, food: [] };
-      dispatch(addMeal(tweakedFood));
-      ownProps.history.push(`/food/${newFood.id}`);
+      console.log('**************',tweakedFood,"***************")
+      dispatch(showMeal(tweakedFood));
     })
     .catch((err) => console.log(err));
 };
-// REDUCER;
-const reducer = (state = [], action) => {
+// // REDUCER;
+const mealReducer = (state = [], action) => {
   switch (action.type) {
-    case ADD_MEAL:
+    case SHOW_MEAL:
       return [...state, action.payload];
     default:
       return state;
   }
 }
 
-export default reducer;
+export default mealReducer;

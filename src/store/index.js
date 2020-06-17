@@ -7,10 +7,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 // Individual reducers altogether under an alias;
 // import * as reducers from '../reducers';
 import {reducer as formReducer} from "redux-form" 
-
+import reducer from 'redux-form/lib/reducer';
+import mealReducer from "../store/utilities/meal"
 // Construct our Redux store;
 const rootReducer = combineReducers({
     form : formReducer,
+    meal : mealReducer
 });
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger));

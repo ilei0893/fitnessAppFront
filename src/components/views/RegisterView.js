@@ -81,4 +81,5 @@ function RegisterView(props) {
 
 export default reduxForm({
   form: "userRegister",
+  destroyOnUnmount : false
 })(RegisterView);

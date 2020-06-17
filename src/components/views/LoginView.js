@@ -3,7 +3,7 @@ import "./styles/index.css";
 import { reduxForm, Field } from "redux-form";
 
 function LoginView(props) {
-  let { handleSubmit } = props;
+  const { handleSubmit } = props;
   return (
     <div>
       <section className="container-fluid bg">
@@ -59,4 +59,5 @@ function LoginView(props) {
 
 export default reduxForm({
   form: "userLogin",
+  distroyOnUnmount : false
 })(LoginView);
