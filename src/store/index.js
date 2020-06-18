@@ -8,11 +8,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 // import * as reducers from '../reducers';
 import {reducer as formReducer} from "redux-form" 
 import reducer from 'redux-form/lib/reducer';
-import mealReducer from "../store/utilities/meal"
+import foodReducer from "../store/utilities/food"
 // Construct our Redux store;
 const rootReducer = combineReducers({
     form : formReducer,
-    meal : mealReducer
+    food : foodReducer
 });
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger));
