@@ -20,9 +20,9 @@ const addFood = (food) => {
 };
 
 // THUNK CREATORS;
-export const showFoodThunk = () => (dispatch) => {
+export const showFoodThunk = (account) => (dispatch) => {
   axios
-    .get("https://jsonplaceholder.typicode.com/users")
+    .get(`/api/accounts/${account}/foodEntries`)
     .then((res) => res.data)
     .then((newFood) => {
       console.log("$$$$$$$$", newFood, "$$$$$$$$$");
@@ -33,11 +33,15 @@ export const showFoodThunk = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const addFoodThunk = (account, foodId) => (dispatch) => {
+export const addFoodThunk = (food, ownProps) => (dispatch) => {
   axios
-    .post(`/api/accounts/${account}/`, {account: account})
+    .post(`/api/foods/add`, food)
     .then((res) => res.data)
-    .then((food) => dispatch(addFood(food)))
+    .then((newFood) => {
+      const tweakedFood = { ...newFood, foods: [] };
+      dispatch(addFood(tweakedFood));
+      ownProps.history.push(`/foods/${newFood.id}`);
+    })
     .catch((err) => console.log(err));
 };
 

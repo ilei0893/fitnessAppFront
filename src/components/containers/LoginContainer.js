@@ -1,36 +1,67 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {LoginView} from "../views/";
+import { LoginView } from "../views/";
+import { loginThunk } from "../../thunks";
 
-export class LoginContainer extends Component {
-  state = {
-    email: "",
-    password: "",
+class LoginContainer extends Component {
+  constructor() {
+    super();
+    this.state = {
+      userName: "",
+      password: "",
+    };
+  }
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   };
-  submit = (values) => {
-    // console.log(values);
-    this.setState({
-      ...this.state,
-      email: values.email,
-      password: values.password,
-    });
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const formName = event.target.name;
+    this.props.loginOrSignup(this.state.userName, this.state.password, formName);
   };
+
   render() {
     return (
-      <div>
-        <LoginView onSubmit={this.submit} />
-        Email: {this.state.email} <br />
-        Password: {this.state.password}
-      </div>
+      <LoginView
+        name={this.props.name}
+        displayName={this.props.displayName}
+        error={this.props.error}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        isLoggedIn={this.props.isLoggedIn}
+        userName={this.props.userName}
+      />
     );
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapLogin = state => {
+  return {
+    name: "login",
+    displayName: "Login",
+    error: state.user.error,
+    isLoggedIn: !!state.user.userName,
+    userName: state.user.userName
+  };
+};
 
-const mapDispatchToProps = {};
+const mapSignup = state => {
+  return {
+    name: "signup",
+    displayName: "Sign Up",
+    error: state.user.error,
+    isLoggedIn: !!state.user.userName,
+    userName: state.user.userName
+  };
+};
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginContainer);
+const mapDispatch = dispatch => {
+  return {
+    loginOrSignup: (userName, password, formName) => dispatch(loginThunk(userName, password, formName))
+  }
+};
+
+export const Login = connect(mapLogin, mapDispatch)(LoginContainer);
+export const Signup = connect(mapSignup, mapDispatch)(LoginContainer);

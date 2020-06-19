@@ -2,24 +2,25 @@ import React from "react";
 import "./styles/index.css";
 import { reduxForm, Field } from "redux-form";
 
-function LoginView(props) {
-  const { handleSubmit } = props;
+const LoginView = props => {
+  const { name, displayName, handleSubmit, error, handleChange, isLoggedIn, userEmail } = props;
   return (
     <div>
       <section className="container-fluid bg">
         <section className="row justify-content-center">
           <section className="col-12 col-sm-6 col-md-3">
-            <form onSubmit={handleSubmit} className="form-container ">
+            <form onSubmit={handleSubmit} className="form-container" name={name}>
               <div className="form-group">
                 <label htmlFor="email">Email address</label>
                 <Field
-                  name="email"
+                  name="name"
                   component="input"
-                  type="email"
+                  type="text"
                   className="form-control"
-                  id="email"
+                  id="name"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
+                  onChange = {handleChange}
                 />
                 <small id="email" className="form-text text-muted">
                   Your email will never be shared.{" "}
@@ -34,6 +35,7 @@ function LoginView(props) {
                   id="password"
                   className="form-control"
                   placeholder="Password"
+                  onChange = {handleChange}
                 />
               </div>
               <div className="form-group form-check">
@@ -47,7 +49,7 @@ function LoginView(props) {
                 </label>
               </div>
               <button type="submit" className="btn btn-primary btn-block">
-                Submit
+                {displayName}
               </button>
             </form>
           </section>
