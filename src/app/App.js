@@ -1,18 +1,25 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import RoutesContainer from "../components/routes/RoutesContainer";
+import RoutesContainer from "../components/routes/RoutesContainer";
 import {NavBarContainer, RegisterContainer, MealPlanContainer,} from "../components/containers/";
-import {LoginContainer} from "../components/containers/LoginContainer"
+
 
 class App extends Component {
+  constructor(props)
+  {
+    super(props);
+    this.setState = {
+      userName: "",
+    }
+  }
+
   render() {
     return (
       <div className="app">
         <header className="app-header">
-          {/* <RoutesContainer /> */}
-          {/* <NavBarContainer />
-          <LoginContainer /> */}
-          <MealPlanContainer/>
+          <RoutesContainer />
+          {/* <NavBarContainer /> */}
+          {/* <MealPlanContainer/> */}
           {/* <RegisterContainer/> */}
         </header>
       </div>

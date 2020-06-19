@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { showMealThunk } from '../../thunks';
+import { showFoodThunk } from '../../thunks';
 import { MealPlanView } from '../views';
 
 // Smart container;
@@ -49,7 +49,7 @@ const mapStateToProps = state => {
 // // Map dispatch to props;
 const mapDispatchToProps = dispatch => {
   return {
-    showMeal: () => dispatch(showMealThunk())
+    showMeal: () => dispatch(showFoodThunk())
   }
 }
 
