@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { showFoodThunk } from '../../thunks';
-import { MealPlanView } from '../views';
+import { FoodView } from '../views';
 
 // Smart container;
-class MealPlanContainer extends Component {
+class FoodContainer extends Component {
   state = {
-    meals : [
+    food : [
       {
         id: 1,
       name : "Apple",
@@ -28,9 +28,9 @@ submit = (values) => {
     const {breakfast, lunch, dinner} = this.state
     return(
       <div>
-        {/* <MealPlanView meal={this.props.meal} /> */}
-        < MealPlanView onSubmit={this.submit} 
-          meal={this.state.meals}
+        {/* <FoodView food={this.props.food} /> */}
+        < FoodView onSubmit={this.submit} 
+          food={this.state.food}
           />
 
       </div>
@@ -40,9 +40,8 @@ submit = (values) => {
 
 // Map state to props;
 const mapStateToProps = state => {
-  console.log('############',state,'############')
   return {
-    meal: state.meal
+    food: state.food
   }
 }
 
@@ -54,13 +53,13 @@ const mapDispatchToProps = dispatch => {
 }
 
 // Type check props;
-// MealPlanContainer.propTypes = {
-//   meal: PropTypes.array.isRequired,
+// FoodContainer.propTypes = {
+//   food: PropTypes.array.isRequired,
 //   addMeal: PropTypes.func.isRequired
 // }
 
 // Export our store-connected container by default;
-export default connect(mapStateToProps, mapDispatchToProps)(MealPlanContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(FoodContainer);
 
 
 /************************************************ORIGINAL************************************************** */
@@ -69,23 +68,23 @@ export default connect(mapStateToProps, mapDispatchToProps)(MealPlanContainer);
 // import PropTypes from 'prop-types';
 // import { connect } from 'react-redux';
 // import { addMealThunk } from '../../thunks';
-// import { MealPlanView } from '../views';
+// import { FoodView } from '../views';
 
 // // Smart container;
-// class MealPlanContainer extends Component {
+// class FoodContainer extends Component {
 //   componentDidMount() {
 //     this.props.addMeal();
 //   }
 
 //   render() {
-//     return <MealPlanView meal={this.props.meal} />
+//     return <FoodView food={this.props.food} />
 //   }
 // }
 
 // // Map state to props;
 // const mapState = state => {
 //   return {
-//     meal: state.meal
+//     food: state.food
 //   }
 // }
 
@@ -97,10 +96,10 @@ export default connect(mapStateToProps, mapDispatchToProps)(MealPlanContainer);
 // }
 
 // // Type check props;
-// MealPlanContainer.propTypes = {
-//   meal: PropTypes.array.isRequired,
+// FoodContainer.propTypes = {
+//   food: PropTypes.array.isRequired,
 //   addMeal: PropTypes.func.isRequired
 // }
 
 // // Export our store-connected container by default;
-// export default connect(mapState, mapDispatch)(MealPlanContainer);
+// export default connect(mapState, mapDispatch)(FoodContainer);
