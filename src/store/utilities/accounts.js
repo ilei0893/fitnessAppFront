@@ -1,13 +1,13 @@
 import axios from "axios";
 
 // Action Types
-const ADD_USER = "ADD_USER";
+const GET_USER = "GET_USER";
 
 // Action Creators
 
 const getUser = (user) => {
   return {
-    type: ADD_USER,
+    type: GET_USER,
     payload: user,
   };
 };
@@ -32,12 +32,13 @@ export const getUserThunk = (username) => async dispatch => {
   //   .catch((err) => console.log(err));
 };
 
-export const loginThunk = (user, password, method) => async dispatch => {
+export const loginThunk = (username, password, formName) => async dispatch => {
   let res;
   try {
-    res = await axios.post(`http://localhost:3000/auth/${method}`, { user, password }, { withCredentials: true });
+    res = await axios.post(`http://localhost:3001/auth/${formName}`, { username, password }, { withCredentials: true });
   }
   catch (authError) {
+    console.log("error1");
     return dispatch(getUser({ error: authError }));
   }
 
@@ -52,7 +53,7 @@ export const loginThunk = (user, password, method) => async dispatch => {
 // Reducer
 const reducer = (state = {}, action) => {
     switch (action.type) {
-      case ADD_USER:
+      case GET_USER:
         return action.payload;
       default:
         return state;

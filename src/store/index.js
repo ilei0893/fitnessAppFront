@@ -9,11 +9,15 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import {reducer as formReducer} from "redux-form" 
 import reducer from 'redux-form/lib/reducer';
 import foodReducer from "../store/utilities/food"
+import userReducer from "../store/utilities/accounts"
+
 // Construct our Redux store;
 const rootReducer = combineReducers({
     form : formReducer,
-    food : foodReducer
+    food : foodReducer,
+    user : userReducer
 });
+
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger));
 const store = createStore(rootReducer, middleware);

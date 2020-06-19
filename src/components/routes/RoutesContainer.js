@@ -14,8 +14,9 @@ class RoutesContainer extends Component {
 }
 
 const mapState = (state) => {
+  console.log(state, "hello");
   return {
-    isLoggedIn: !!state.user.userName
+    isLoggedIn: !!state.user.username
   }
 }
 

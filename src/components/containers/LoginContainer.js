@@ -5,9 +5,10 @@ import { loginThunk } from "../../thunks";
 
 class LoginContainer extends Component {
   constructor() {
+    console.log("hello from constructor")
     super();
     this.state = {
-      userName: "",
+      username: "",
       password: "",
     };
   }
@@ -19,10 +20,12 @@ class LoginContainer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const formName = event.target.name;
-    this.props.loginOrSignup(this.state.userName, this.state.password, formName);
+    console.log(formName);
+    this.props.loginOrSignup(this.state.username, this.state.password, formName);
   };
 
   render() {
+    console.log("Hello from render");
     return (
       <LoginView
         name={this.props.name}
@@ -31,35 +34,37 @@ class LoginContainer extends Component {
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         isLoggedIn={this.props.isLoggedIn}
-        userName={this.props.userName}
+        username={this.props.username}
       />
     );
   }
 }
 
 const mapLogin = state => {
+  console.log("hello from mapLogin")
   return {
     name: "login",
     displayName: "Login",
     error: state.user.error,
-    isLoggedIn: !!state.user.userName,
-    userName: state.user.userName
+    isLoggedIn: !!state.user.username,
+    username: state.user.username
   };
 };
 
 const mapSignup = state => {
+  console.log("hello from mapSignup")
   return {
     name: "signup",
     displayName: "Sign Up",
     error: state.user.error,
-    isLoggedIn: !!state.user.userName,
-    userName: state.user.userName
+    isLoggedIn: !!state.user.username,
+    username: state.user.username
   };
 };
 
 const mapDispatch = dispatch => {
   return {
-    loginOrSignup: (userName, password, formName) => dispatch(loginThunk(userName, password, formName))
+    loginOrSignup: (username, password, formName) => dispatch(loginThunk(username, password, formName))
   }
 };
 
