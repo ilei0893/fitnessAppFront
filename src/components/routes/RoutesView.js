@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Login, Signup, MealPlanContainer } from '../containers';
+import { Login, Signup, FoodContainer } from '../containers';
 
 const RoutesView = (props) => {
   const { isLoggedIn } = props;
@@ -13,7 +13,7 @@ const RoutesView = (props) => {
         <Switch>
           {/* Routes placed within this section are only available after
           logging in */}
-          <Route exact path="/" component={MealPlanContainer} />
+          <Route exact path="/" component={FoodContainer} />
           </Switch>
       )}
 

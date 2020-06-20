@@ -13,7 +13,6 @@ class addFoodFormContainer extends Component {
         protein : "",
         carbs : "",
         fat : "",
-        
     };
   }
 

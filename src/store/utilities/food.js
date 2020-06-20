@@ -3,6 +3,7 @@ import axios from "axios";
 // ACTION TYPES;
 const SHOW_FOOD = "SHOW_FOOD";
 const ADD_FOOD = "ADD_FOOD";
+const DELETE_FOOD = "DELETE_FOOD";
 
 // ACTION CREATORS;
 const showFood = (food) => {
@@ -19,15 +20,20 @@ const addFood = (food) => {
   };
 };
 
+const deleteFood = (id) => {
+  return {
+    type: DELETE_FOOD,
+    payload: id,
+  };
+};
+
 // THUNK CREATORS;
 export const showFoodThunk = (account) => (dispatch) => {
   axios
     .get(`/api/accounts/${account}/foodEntries`)
     .then((res) => res.data)
     .then((newFood) => {
-      console.log("$$$$$$$$", newFood, "$$$$$$$$$");
       const tweakedFood = { ...newFood, food: [] };
-      console.log("**************", tweakedFood, "***************");
       dispatch(showFood(tweakedFood));
     })
     .catch((err) => console.log(err));
@@ -45,6 +51,14 @@ export const addFoodThunk = (food, ownProps) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+export const deleteFoodThunk = (username,id) => (dispatch) => {
+  return axios
+    .delete(`/api/foods/${username}/${id}`)
+    .then((res) => res.data)
+    .then(() => dispatch(deleteFood(id)))
+    .catch((err) => console.log(err));
+};
+
 // // REDUCER;
 const foodReducer = (state = [], action) => {
   switch (action.type) {
@@ -54,6 +68,9 @@ const foodReducer = (state = [], action) => {
       return state.map((food) =>
         food.id === action.payload.id ? action.payload : food
       );
+    case DELETE_FOOD:
+      console.log(action.payload);
+      return state.filter((food) => food.id !== action.payload);
     default:
       return state;
   }
