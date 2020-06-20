@@ -7,6 +7,7 @@ import { FoodView } from "../views";
 // Smart container;
 class FoodContainer extends Component {
   componentDidMount() {
+    console.log("hello from componentdidmount");
     this.props.showFood();
   }
   
@@ -17,7 +18,7 @@ class FoodContainer extends Component {
   render() {
     return (
       <FoodView 
-        allFood={this.props.allFood} 
+        allFood={this.props.allFood}
         handleDelete={this.handleDelete}
       />
     );
