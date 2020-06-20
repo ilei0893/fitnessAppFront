@@ -30,7 +30,7 @@ const deleteFood = (id) => {
 // THUNK CREATORS;
 export const showFoodThunk = (account) => (dispatch) => {
   axios
-    .get(`/api/accounts/${account}/foodEntries`)
+    .get(`/api/users/${account}/foodEntries`)
     .then((res) => res.data)
     .then((newFood) => {
       const tweakedFood = { ...newFood, food: [] };
