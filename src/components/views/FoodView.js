@@ -6,7 +6,7 @@ import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
 
 const FoodView = (props) => {
-    const {handleSubmit} = props
+    // const {handleSubmit} = props
     return (
       <div className="all-foods">
         <CardDeck>

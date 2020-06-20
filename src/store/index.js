@@ -13,7 +13,7 @@ import userReducer from "./utilities/users"
 
 // Construct our Redux store;
 const rootReducer = combineReducers({
-    form : formReducer,
+    // form : formReducer,
     food : foodReducer,
     user : userReducer
 });

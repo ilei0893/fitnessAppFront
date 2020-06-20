@@ -1,56 +1,43 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { showFoodThunk } from '../../thunks';
-import { FoodView } from '../views';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { showFoodThunk, deleteFoodThunk } from "../../thunks";
+import { FoodView } from "../views";
 
 // Smart container;
 class FoodContainer extends Component {
-  state = {
-    food : [
-      {
-        id: 1,
-      name : "Apple",
-      calories : 123,
-      protein : 544,
-      carbs : 345,
-      fat : 435,
-    }]
-}
-submit = (values) => {
-  console.log(values)
-  }
   componentDidMount() {
-    // this.props.showMeal();
+    this.props.showFood();
+  }
+  
+  handleDelete = (id) => {
+    this.props.deleteFood(id);
   }
 
   render() {
-    const {breakfast, lunch, dinner} = this.state
-    return(
-      <div>
-        {/* <FoodView food={this.props.food} /> */}
-        < FoodView onSubmit={this.submit} 
-          food={this.state.food}
-          />
-
-      </div>
-    )
+    return (
+      <FoodView 
+        allFood={this.props.allFood} 
+        handleDelete={this.handleDelete}
+      />
+    );
   }
 }
 
 // Map state to props;
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    food: state.food
-  }
-}
+    allFood: state.food,
+  };
+};
 
 // // Map dispatch to props;
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    showMeal: () => dispatch(showFoodThunk())
-  }
-}
+    showFood: () => dispatch(showFoodThunk()),
+    deleteFood: (id) => dispatch(deleteFoodThunk(id)),
+  };
+};
 
 // Type check props;
 // FoodContainer.propTypes = {
@@ -60,7 +47,6 @@ const mapDispatchToProps = dispatch => {
 
 // Export our store-connected container by default;
 export default connect(mapStateToProps, mapDispatchToProps)(FoodContainer);
-
 
 /************************************************ORIGINAL************************************************** */
 
