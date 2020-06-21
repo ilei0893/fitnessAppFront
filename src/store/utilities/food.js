@@ -28,14 +28,11 @@ const deleteFood = (id) => {
 };
 
 // THUNK CREATORS;
-export const showFoodThunk = (account) => (dispatch) => {
+export const showFoodThunk = (username) => (dispatch) => {
   axios
-    .get(`/api/users/${account}/foodEntries`)
-    .then((res) => res.data)
-    .then((newFood) => {
-      const tweakedFood = { ...newFood, food: [] };
-      dispatch(showFood(tweakedFood));
-    })
+    .get(`/api/users/${username}/foodEntries`)
+    .then((res) => res.data) 
+    .then((food) => dispatch(showFood(food)))
     .catch((err) => console.log(err));
 };
 
@@ -63,7 +60,7 @@ export const deleteFoodThunk = (username,id) => (dispatch) => {
 const foodReducer = (state = [], action) => {
   switch (action.type) {
     case SHOW_FOOD:
-      return [...state, action.payload];
+      return action.payload;
     case ADD_FOOD:
       return state.map((food) =>
         food.id === action.payload.id ? action.payload : food

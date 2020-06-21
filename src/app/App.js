@@ -9,7 +9,7 @@ class App extends Component {
   {
     super(props);
     this.setState = {
-      userName: "",
+      username: "",
     }
   }
 
@@ -17,6 +17,7 @@ class App extends Component {
     return (
       <div className="app">
         <header className="app-header">
+          {/* <NavBarContainer /> */}
           <RoutesContainer />
           {/* <NavBarContainer /> */}
           {/* <MealPlanContainer/> */}
