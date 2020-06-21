@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { LoginView } from "../views/";
-import { loginThunk } from "../../thunks";
+import { loginThunk, getUserThunk } from "../../thunks";
 
 class LoginContainer extends Component {
-  constructor() {
-    console.log("hello from constructor")
-    super();
+  constructor(props) {
+    // console.log("hello from constructor")
+    super(props);
     this.state = {
       username: "",
       password: "",
@@ -22,6 +22,7 @@ class LoginContainer extends Component {
     const formName = event.target.name;
     console.log(formName);
     this.props.loginOrSignup(this.state.username, this.state.password, formName);
+    this.props.displayUserData(this.state.username);
   };
 
   render() {
@@ -64,7 +65,8 @@ const mapSignup = state => {
 
 const mapDispatch = dispatch => {
   return {
-    loginOrSignup: (username, password, formName) => dispatch(loginThunk(username, password, formName))
+    loginOrSignup: (username, password, formName) => dispatch(loginThunk(username, password, formName)),
+    displayUserData: (username) => dispatch(getUserThunk(username))
   }
 };
 

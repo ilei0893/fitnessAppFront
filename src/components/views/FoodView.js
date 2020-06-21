@@ -5,7 +5,14 @@ import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
 
 const FoodView = (props) => {
-    const {handleSubmit, username, allFood} = props
+  if (!props.allFood.length) {
+    return (
+      <>
+        <div className="all-foods">No foods</div>
+        
+      </>
+    );
+  }
     return (
 
       <div className="all-foods">

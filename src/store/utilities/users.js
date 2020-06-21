@@ -15,7 +15,7 @@ const getUser = (user) => {
 // Thunk Creators
 export const getUserThunk = (username) => async dispatch => {
   try {
-    const res = await axios.get(`http://localhost:3000/api/users/${username}`, { withCredentials: true });
+    const res = await axios.get(`http://localhost:3001/api/users/${username}`, { withCredentials: true });
     dispatch(getUser(res.data || {}));
   }
   catch (err) {
