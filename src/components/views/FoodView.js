@@ -3,18 +3,19 @@ import React from "react";
 // import { reduxForm, Field } from "redux-form"
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
-
+import FoodEntryContainer from "../containers/FoodEntryContainer"
 const FoodView = (props) => {
   if (!props.allFood.length) {
     return (
       <>
+        <FoodEntryContainer/>
         <div className="all-foods">No foods</div>
         
       </>
     );
   }
     return (
-
+      <>
       <div className="all-foods">
         <CardDeck>
           {props.allFood.map((food) => (
@@ -45,6 +46,17 @@ const FoodView = (props) => {
           ))}
         </CardDeck>
       </div>
+
+      <FoodEntryContainer/>
+      </>
     );
 }
+
+const Search = (props) => {
+
+}
+
+
+
+
 export default FoodView;
