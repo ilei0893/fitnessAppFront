@@ -6,9 +6,18 @@ import { FoodView } from "../views";
 
 // Smart container;
 class FoodContainer extends Component {
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      username: "johndoe98",
+    }
+  }
   componentDidMount() {
     console.log("hello from componentdidmount");
-    this.props.showFood();
+    console.log(this.props);
+    this.props.showFood(this.state.username);
+    console.log(this.props);
   }
   
   handleDelete = (id) => {
@@ -20,6 +29,7 @@ class FoodContainer extends Component {
       <FoodView 
         allFood={this.props.allFood}
         handleDelete={this.handleDelete}
+        date = {this.curDate}
       />
     );
   }
@@ -29,13 +39,14 @@ class FoodContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     allFood: state.food,
+    username: state.username,
   };
-};
+}; 
 
 // // Map dispatch to props;
 const mapDispatchToProps = (dispatch) => {
   return {
-    showFood: () => dispatch(showFoodThunk()),
+    showFood: (username) => dispatch(showFoodThunk(username)),
     deleteFood: (id) => dispatch(deleteFoodThunk(id)),
   };
 };

@@ -8,12 +8,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 // import * as reducers from '../reducers';
 import {reducer as formReducer} from "redux-form" 
 import reducer from 'redux-form/lib/reducer';
-import foodReducer from "../store/utilities/food"
+import foodReducer from "./utilities/food"
 import userReducer from "./utilities/users"
 
 // Construct our Redux store;
 const rootReducer = combineReducers({
-    // form : formReducer,
+    form : formReducer,
     food : foodReducer,
     user : userReducer
 });
