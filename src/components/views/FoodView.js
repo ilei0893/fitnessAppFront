@@ -6,6 +6,7 @@ import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
 
 const FoodView = (props) => {
+  
   if (!props.allFood.length) {
     return (
       <>
@@ -15,7 +16,6 @@ const FoodView = (props) => {
     );
   }
     return (
-
       <div className="all-foods">
         <CardDeck>
           {props.allFood.map((food) => (
