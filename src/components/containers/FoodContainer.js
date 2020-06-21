@@ -31,7 +31,6 @@ class FoodContainer extends Component {
         allFood={this.props.allFood}
         username={this.props.username}
         handleDelete={this.handleDelete}
-        date = {this.curDate}
       />
     );
   }

@@ -2,18 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {NavBarView} from "../views"
 
-export class NavBarContainer extends Component {
+class NavBarContainer extends Component {
+
   render() {
     return (
       <div>
-        <NavBarView />
+        <NavBarView isLoggedIn = {this.props.isLoggedIn}/>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavBarContainer);
+export default NavBarContainer;

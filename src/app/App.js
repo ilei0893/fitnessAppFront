@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RoutesContainer from "../components/routes/RoutesContainer";
-import {NavBarContainer, RegisterContainer, MealPlanContainer,} from "../components/containers/";
+import {NavBarContainer} from "../components/containers/";
 
 
 class App extends Component {
@@ -19,9 +19,6 @@ class App extends Component {
         <header className="app-header">
           {/* <NavBarContainer /> */}
           <RoutesContainer />
-          {/* <NavBarContainer /> */}
-          {/* <MealPlanContainer/> */}
-          {/* <RegisterContainer/> */}
         </header>
       </div>
     );
