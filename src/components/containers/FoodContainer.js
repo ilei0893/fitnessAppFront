@@ -29,7 +29,6 @@ class FoodContainer extends Component {
       <FoodView 
         allFood={this.props.allFood}
         handleDelete={this.handleDelete}
-        date = {this.curDate}
       />
     );
   }

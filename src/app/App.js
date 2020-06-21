@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RoutesContainer from "../components/routes/RoutesContainer";
-import {NavBarContainer, RegisterContainer, MealPlanContainer,} from "../components/containers/";
+import {NavBarContainer} from "../components/containers/";
 
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
   {
     super(props);
     this.setState = {
-      userName: "",
+      username: "",
     }
   }
 
@@ -18,9 +18,6 @@ class App extends Component {
       <div className="app">
         <header className="app-header">
           <RoutesContainer />
-          {/* <NavBarContainer /> */}
-          {/* <MealPlanContainer/> */}
-          {/* <RegisterContainer/> */}
         </header>
       </div>
     );
