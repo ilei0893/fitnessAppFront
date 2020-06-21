@@ -9,13 +9,15 @@ class RoutesContainer extends Component {
     this.props.loadInitialData();
   }
   render() {
-    return <RoutesView isLoggedIn={this.props.isLoggedIn}/>
+    console.log("username:",this.props.username)
+    return <RoutesView isLoggedIn={this.props.isLoggedIn} username={this.props.username} />
   }
 }
 
 const mapState = (state) => {
   return {
-    isLoggedIn: !!state.user.username
+    isLoggedIn: !!state.user.username,
+    username: state.user.username
   }
 }
 

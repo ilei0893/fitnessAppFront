@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { showFoodThunk, deleteFoodThunk } from "../../thunks";
 import { FoodView } from "../views";
 
 // Smart container;
 class FoodContainer extends Component {
+  constructor(props){
+    super(props);
+  }
   componentDidMount() {
     console.log("hello from componentdidmount");
     this.props.showFood();
@@ -16,9 +18,11 @@ class FoodContainer extends Component {
   }
 
   render() {
+    console.log("--------------",this.props.username)
     return (
       <FoodView 
         allFood={this.props.allFood}
+        username={this.props.username}
         handleDelete={this.handleDelete}
       />
     );
@@ -29,13 +33,14 @@ class FoodContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     allFood: state.food,
+    username: state.user.username
   };
 };
 
 // // Map dispatch to props;
 const mapDispatchToProps = (dispatch) => {
   return {
-    showFood: () => dispatch(showFoodThunk()),
+    showFood: (username) => dispatch(showFoodThunk(username)),
     deleteFood: (id) => dispatch(deleteFoodThunk(id)),
   };
 };
