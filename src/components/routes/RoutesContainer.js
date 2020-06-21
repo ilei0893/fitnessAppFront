@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { getUserThunk } from "../../thunks";
 
 class RoutesContainer extends Component {
-  componentDidMount() {
-    this.props.loadInitialData();
-  }
+  // componentDidMount() {
+  //   this.props.loadInitialData();
+  // }
   render() {
     return <RoutesView isLoggedIn={this.props.isLoggedIn}/>
   }
