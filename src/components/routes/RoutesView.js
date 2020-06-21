@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import { Login, Signup, FoodContainer, NavBarContainer } from '../containers';
 
 const RoutesView = (props) => {
-  const { isLoggedIn } = props;
+  const { isLoggedIn, username } = props;
   return (
     <Switch>
       <Route exact path="/login" render={() => (

@@ -17,6 +17,7 @@ class App extends Component {
     return (
       <div className="app">
         <header className="app-header">
+          {/* <NavBarContainer /> */}
           <RoutesContainer />
         </header>
       </div>
