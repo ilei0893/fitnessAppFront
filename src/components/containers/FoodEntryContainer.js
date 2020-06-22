@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showFoodThunk, deleteFoodThunk } from "../../thunks";
-import { FoodView } from "../views";
+import { FoodEntryView } from "../views";
 import axios from 'axios';
 // Smart container;
 export default class FoodEntryContainer extends Component {
