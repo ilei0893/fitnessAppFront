@@ -16,13 +16,13 @@ const RoutesView = (props) => {
     <Switch>
       <Route exact path="/login" render={() => (
         isLoggedIn ? (
-          <div className = "food">
-            <Redirect to="/food"/>
+          <div className = "exercises">
+            <Redirect to="/exercises"/>
           </div>
         ) : (
           <div className="login">
             <NavBarContainer isLoggedIn = {isLoggedIn}/>
-            <Signup/>
+            <Login/>
           </div>
         )
       )}/>
