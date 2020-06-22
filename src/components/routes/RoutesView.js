@@ -1,5 +1,7 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import ExerciseView from '../views/ExerciseView';
+import ExerciseContainer from '../containers/ExerciseContainer';
 import { 
   Login,
   Signup,
@@ -20,7 +22,7 @@ const RoutesView = (props) => {
         ) : (
           <div className="login">
             <NavBarContainer isLoggedIn = {isLoggedIn}/>
-            <Login/>
+            <Signup/>
           </div>
         )
       )}/>
@@ -32,6 +34,7 @@ const RoutesView = (props) => {
           <>
             <NavBarContainer isLoggedIn = {isLoggedIn} foodEntryView = {foodEntryView}/>
             <Route exact path="/food" component={FoodContainer} />
+            <Route exact path="/exercises" component={ExerciseContainer} />
           </>
           </Switch>
       )}
