@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addExerciseThunk, deleteExerciseThunk } from "../../thunks";
+import { addExerciseThunk } from "../../thunks";
 import data from '../../data/data.json';
 
 class ExerciseEntryContainer extends Component{
@@ -14,11 +14,18 @@ class ExerciseEntryContainer extends Component{
     console.log("set timeValue option in state to", event.target.value)
     console.log("calling this.state.timeValue: ", this.state.timeValue)
     this.setState({hitSubmit : false});
-
+    console.log("calling USERNAME FROM ENTRY CONTAINER", this.props.username)
   }
   handleSubmit = (event) =>{
     this.setState({hitSubmit : true});
     event.preventDefault();
+    const toAdd = {
+        name : this.state.ExerciseOption,
+        intensity : this.state.intensity,
+        time : this.state.timeValue,
+        usernameId : this.props.username
+    }
+    this.props.addExercise(toAdd);
   }
 
   setExerciseOption = (event) =>{
@@ -36,6 +43,8 @@ class ExerciseEntryContainer extends Component{
 
   }
 
+
+
   getExercises = () => {
     const exercise = this.state.ExerciseOption;
     const time = this.state.timeValue;
@@ -49,13 +58,13 @@ class ExerciseEntryContainer extends Component{
             {calsBurnt} calories burnt
         </div>
     )
-    
+
 }
 
   render(){
     const options = [...Object.keys(data)]
     console.log(options)
-    
+    console.log("LOGGING USERNAME: ", this.props.username)
     return (
       <div className="exercise-form">
           {/* exercise entry form */}
@@ -92,7 +101,6 @@ class ExerciseEntryContainer extends Component{
 const mapDispatch = (dispatch, ownProps) => {
   return {
     addExercise: (exercise) => dispatch(addExerciseThunk(exercise, ownProps)),
-    deleteExercise: (id) => dispatch(deleteExerciseThunk(id)),
   };
 };
 
