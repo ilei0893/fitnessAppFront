@@ -2,12 +2,11 @@
   background: url(../../images/workouthome.jpg) no-repeat center center fixed;  
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   min-height: 100vh;
 }
 
-.homepage{
-  font-family: sans-serif;
-
-  
+.text {
+  color: white;
+  font-family: Arial
 }
