@@ -3,13 +3,13 @@ import React from "react";
 // import { reduxForm, Field } from "redux-form"
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
-// import ExerciseEntryContainer from "../containers/ExerciseEntryContainer";
+import ExerciseEntryContainer from "../containers/ExerciseEntryContainer";
 
 const ExerciseView = (props) => {
   if (!props.allExercises.length) {
     return (
       <>
-        {/* <ExerciseEntryContainer /> */}
+        <ExerciseEntryContainer />
         <div className="all-exercises">No exercises</div>
       </>
     );
@@ -17,7 +17,7 @@ const ExerciseView = (props) => {
   
   return(
     <>
-    {/* <ExerciseEntryContainer /> */}
+    <ExerciseEntryContainer /> 
     <div className="all-foods">
       <CardDeck>
         {props.allExercises.map((exercise) => (

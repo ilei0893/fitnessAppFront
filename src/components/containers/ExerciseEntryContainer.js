@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addFoodThunk, deleteFoodThunk } from "../../thunks";
-import './App.css';
-import Getexercises from './components/Getexercises'
+import { addExerciseThunk, deleteExerciseThunk } from "../../thunks";
 import data from './data/data.json';
 
-export default class App extends Component{
+class ExerciseEntryContainer extends Component{
   constructor(props){
     super(props);
     this.state = {timeValue: '', ExerciseOption : 'walking', intensity : '', hitSubmit : false};
@@ -58,7 +56,7 @@ export default class App extends Component{
           <input type="submit" value="Submit" />
         </form>
             {/* checks if user hit submit, if they did, adds exercise to db */}
-          {this.state.hitSubmit? <Getexercises exercise={this.state.ExerciseOption} intensity={this.state.intensity} time={this.state.timeValue}/> : null} 
+          {this.state.hitSubmit? null : null} 
       </div>
     );
   }
@@ -68,9 +66,9 @@ export default class App extends Component{
 // // Map dispatch to props;
 const mapDispatch = (dispatch, ownProps) => {
   return {
-    addFood: (food) => dispatch(addFoodThunk(food, ownProps)),
-    deleteFood: (id) => dispatch(deleteFoodThunk(id)),
+    addExercise: (exercise) => dispatch(addExerciseThunk(exercise, ownProps)),
+    deleteExercise: (id) => dispatch(deleteExerciseThunk(id)),
   };
 };
 
-export default connect(null, mapDispatch)(FoodEntryContainer);
+export default connect(null, mapDispatch)(ExerciseEntryContainer);
