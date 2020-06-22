@@ -2,7 +2,7 @@
 export { default as FoodContainer } from './FoodContainer';
 export { default as NavBarContainer } from "./NavBarContainer";
 // export { LoginContainer } from "./LoginContainer"
-export { default as RegisterContainer} from "./RegisterContainer"
+export { default as RegisterContainer} from "./RegisterContainer";
 export { Login, Signup } from "./LoginContainer";
-export { default as FoodEntryContainer} from "./FoodEntryContainer"
-
+export { default as FoodEntryContainer} from "./FoodEntryContainer";
+export { default as HomePageContainer} from "./HomePageContainer";
