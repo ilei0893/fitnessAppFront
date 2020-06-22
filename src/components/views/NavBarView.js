@@ -19,9 +19,11 @@ const NavBarView = (props) => {
   return (
     <Navbar bg="dark" variant="dark">
       <Link to="/food" className="nav-link">
-        Foods
+        My Foods
       </Link>
-      <Button>Food Entries</Button>
+      <Link to="/exercises" className="nav-link">
+        Exercises
+      </Link>
       <Nav className="ml-auto"/>
         {/* <Link pullRight to="/login" onClick={isLoggedIn = false}>Sign Out</Link> */}
     </Navbar>
