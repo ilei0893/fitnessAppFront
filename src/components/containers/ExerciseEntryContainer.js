@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addExerciseThunk, deleteExerciseThunk } from "../../thunks";
-import data from './data/data.json';
+import data from '../../data/data.json';
 
 class ExerciseEntryContainer extends Component{
   constructor(props){
@@ -11,6 +11,8 @@ class ExerciseEntryContainer extends Component{
 
   handleChange = (event) =>{
     this.setState({timeValue: event.target.value});
+    console.log("set timeValue option in state to", event.target.value)
+    console.log("calling this.state.timeValue: ", this.state.timeValue)
     this.setState({hitSubmit : false});
 
   }
@@ -21,11 +23,34 @@ class ExerciseEntryContainer extends Component{
 
   setExerciseOption = (event) =>{
     this.setState({ExerciseOption : event.target.value})
+    console.log("set exercise option in state to", event.target.value)
+    event.preventDefault();
+
   }
 
   setIntensity = (event) => {
     this.setState({intensity : event.target.value})
+    console.log("set intensity option in state to", event.target.value)
+
+    event.preventDefault();
+
   }
+
+  getExercises = () => {
+    const exercise = this.state.ExerciseOption;
+    const time = this.state.timeValue;
+    const intensity = this.state.intensity;
+    const calsBurnt = Math.floor( (data[exercise])[intensity] * time );
+    console.log("input is: ",exercise)
+    console.log("time is", time)
+    console.log("intensity is", intensity)
+    return (
+        <div>
+            {calsBurnt} calories burnt
+        </div>
+    )
+    
+}
 
   render(){
     const options = [...Object.keys(data)]
@@ -56,7 +81,7 @@ class ExerciseEntryContainer extends Component{
           <input type="submit" value="Submit" />
         </form>
             {/* checks if user hit submit, if they did, adds exercise to db */}
-          {this.state.hitSubmit? null : null} 
+          {this.state.hitSubmit? this.getExercises() : null} 
       </div>
     );
   }
