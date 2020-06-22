@@ -24,6 +24,9 @@ const NavBarView = (props) => {
       <Link to="/exercises" className="nav-link">
         Exercises
       </Link>
+      <Link to="/foodEntries" classname="nav-link">
+        Foods
+      </Link>
       <Nav className="ml-auto"/>
         {/* <Link pullRight to="/login" onClick={isLoggedIn = false}>Sign Out</Link> */}
     </Navbar>
