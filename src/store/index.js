@@ -10,12 +10,14 @@ import {reducer as formReducer} from "redux-form"
 import reducer from 'redux-form/lib/reducer';
 import foodReducer from "./utilities/food"
 import userReducer from "./utilities/users"
+import exerciseReducer from './utilities/exercises';
 
 // Construct our Redux store;
 const rootReducer = combineReducers({
     form : formReducer,
     food : foodReducer,
-    user : userReducer
+    user : userReducer,
+    exercise : exerciseReducer
 });
 
 const logger = createLogger({ collapsed: true });
