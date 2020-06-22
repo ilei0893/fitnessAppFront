@@ -9,7 +9,6 @@ const FoodView = (props) => {
   if (!props.allFood.length) {
     return (
       <>
-        <FoodEntryContainer />
         <div className="all-foods">No foods</div>
       </>
     );
@@ -17,7 +16,6 @@ const FoodView = (props) => {
   
   return(
     <>
-    <FoodEntryContainer />
     <div className="all-foods">
       <CardDeck>
         {props.allFood.map((food) => (

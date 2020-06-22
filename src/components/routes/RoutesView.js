@@ -2,12 +2,13 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import ExerciseView from '../views/ExerciseView';
 import ExerciseContainer from '../containers/ExerciseContainer';
+import ExerciseEntryContainer from '../containers/ExerciseEntryContainer';
 import { 
   Login,
   Signup,
   FoodContainer,
   NavBarContainer,
-  FoodEntryContainer
+  FoodEntryContainer,
 } from '../containers';
 
 const RoutesView = (props) => {
@@ -36,6 +37,7 @@ const RoutesView = (props) => {
             <Route exact path="/food" component={FoodContainer} />
             <Route exact path="/exercises" component={ExerciseContainer} />
             <Route exact path="/foodEntries" component={FoodEntryContainer}/>
+            <Route exact path="/exerciseEntries" component={ExerciseEntryContainer} />
           </>
           </Switch>
       )}
