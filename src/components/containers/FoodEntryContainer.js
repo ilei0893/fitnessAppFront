@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { addFoodThunk, deleteFoodThunk } from "../../thunks";
 import { FoodEntryView } from "../views";
 import axios from "axios";
+import { isCompositeComponent } from "react-dom/test-utils";
+
 // Smart container;
 class FoodEntryContainer extends Component {
   constructor(props) {
@@ -13,6 +15,7 @@ class FoodEntryContainer extends Component {
       loading: false,
       message: " ",
       hitSubmit: false,
+      foodCardChoices : []
     };
   }
 
@@ -63,12 +66,29 @@ class FoodEntryContainer extends Component {
       console.log("logging from render: ", results);
       return (
         <div className="results-container">
-          {results.map((result) => {
+          {results.map((result, key) => {
+            let choice = key;
+            let name = result.fields.item_name;
+            let calories = result.fields.nf_calories;
+            let fat = result.fields.nf_total_fat;
+            let carbohydrates = result.fields.nf_total_carbohydrate;
+            let protein = result.fields.nf_protein;
+            this.state.foodCardChoices.push({
+               name : result.fields.item_name,
+               calories : Math.floor(result.fields.nf_calories),
+               fat : Math.floor(result.fields.nf_total_fat),
+               carbohydrates : Math.floor(result.fields.nf_total_carbohydrate),
+               protein : Math.floor(result.fields.nf_protein)
+              })
             return (
-              <a key={result}>
-                <div id="individual-result">
-                  <p>{result.fields.item_name}</p>
-                  <p>{result.fields.nf_calories}</p>
+              <a key={key}>
+                <div id="individual-result" >
+                  <p>{name}</p>
+                  <p>{calories}</p>
+                  <p>{fat}</p>
+                  <p>{carbohydrates}</p>
+                  <p>{protein}</p>
+                  <button id="selectFood" type="select" value="select" onClick={() => this.selectFoodCard(key)}> select </button>
                 </div>
               </a>
             );
@@ -77,6 +97,20 @@ class FoodEntryContainer extends Component {
       );
     }
   };
+
+  selectFoodCard = (key) => {
+    console.log("[key] ", this.state.foodCardChoices[key])
+    const toAdd = {
+      name : this.state.foodCardChoices[key].name,
+      calories : this.state.foodCardChoices[key].calories,
+      fat : this.state.foodCardChoices[key].fat,
+      carbs : this.state.foodCardChoices[key].carbohydrates,
+      protein : this.state.foodCardChoices[key].protein,
+      usernameId : this.props.username
+    }
+    console.log("toAdd ",toAdd);
+    this.props.addFood(toAdd);
+  }
   render(){
     return (
       <FoodEntryView
@@ -89,6 +123,13 @@ class FoodEntryContainer extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  console.log(state, "mapstate");
+  return {
+    allFood: state.food,
+    username: state.user.username
+  };
+};
 
 // // Map dispatch to props;
 const mapDispatch = (dispatch, ownProps) => {
@@ -98,4 +139,4 @@ const mapDispatch = (dispatch, ownProps) => {
   };
 };
 
-export default connect(null, mapDispatch)(FoodEntryContainer);
+export default connect(mapStateToProps, mapDispatch)(FoodEntryContainer);
