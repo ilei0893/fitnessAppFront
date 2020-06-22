@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Login, Signup, FoodContainer, NavBarContainer } from '../containers';
+import ExerciseView from '../views/ExerciseView';
+import ExerciseContainer from '../containers/ExerciseContainer';
 
 const RoutesView = (props) => {
   const { isLoggedIn, username } = props;
@@ -14,7 +16,7 @@ const RoutesView = (props) => {
         ) : (
           <div className="login">
             <NavBarContainer isLoggedIn = {isLoggedIn}/>
-            <Login/>
+            <Signup/>
           </div>
         )
       )}/>
@@ -26,6 +28,7 @@ const RoutesView = (props) => {
           <>
             <NavBarContainer isLoggedIn = {isLoggedIn}/>
             <Route exact path="/food" component={FoodContainer} />
+            <Route exact path="/exercises" component={ExerciseContainer} />
           </>
           </Switch>
       )}

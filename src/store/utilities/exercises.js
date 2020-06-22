@@ -15,7 +15,7 @@ const showExercises = (exercises) => {
 
 const addExercise = (exercise) => {
   return {
-    type: ADD_EXERCISES,
+    type: ADD_EXERCISE,
     payload: exercise,
   };
 };
@@ -32,13 +32,13 @@ export const showExerciseThunk = (username) => (dispatch) => {
   axios
     .get(`/api/users/${username}/exerciseEntries`)
     .then((res) => res.data) 
-    .then((food) => dispatch(showExercises(exercises)))
+    .then((exercises) => dispatch(showExercises(exercises)))
     .catch((err) => console.log(err));
 };
 
 export const addExerciseThunk = (exercise, ownProps) => (dispatch) => {
   axios
-    .post(`/api/exercises/add`, food)
+    .post(`/api/exercises/add`, exercise)
     .then((res) => res.data)
     .then((newExercise) => {
       const tweakedExercise = { ...newExercise, exercises: [] };

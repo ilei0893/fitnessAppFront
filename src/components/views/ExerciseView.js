@@ -3,7 +3,7 @@ import React from "react";
 // import { reduxForm, Field } from "redux-form"
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
-import ExerciseEntryContainer from "../containers/ExerciseEntryContainer";
+// import ExerciseEntryContainer from "../containers/ExerciseEntryContainer";
 
 const ExerciseView = (props) => {
   if (!props.allExercises.length) {

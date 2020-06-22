@@ -16,10 +16,7 @@ class ExerciseContainer extends Component {
     }
   }
   componentDidMount() {
-    console.log("hello from componentdidmount");
-    console.log(this.props);
     this.props.showExercise(this.state.username);
-    console.log(this.props);
   }
   
   handleDelete = (id) => {
@@ -27,7 +24,6 @@ class ExerciseContainer extends Component {
   }
 
   render() {
-    console.log("--------------",this.props.username)
     return (
       <ExerciseView 
         allExercises={this.props.allExercises}
@@ -41,7 +37,7 @@ class ExerciseContainer extends Component {
 // Map state to props;
 const mapStateToProps = (state) => {
   return {
-    allExercises: state.exercises,
+    allExercises: state.exercise,
     username: state.username,
   };
 }; 
