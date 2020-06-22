@@ -1,7 +1,7 @@
 import React from "react";
 
 const FoodEntryView = (props) => {
-    console.log(props)
+    // console.log(props)
   return (
     <div>
       <form id="form" onSubmit={props.onSubmit}>

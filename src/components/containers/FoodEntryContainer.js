@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { showFoodThunk, deleteFoodThunk } from "../../thunks";
+import { addFoodThunk, deleteFoodThunk } from "../../thunks";
 import { FoodEntryView } from "../views";
 import axios from "axios";
 // Smart container;
-export default class FoodEntryContainer extends Component {
+class FoodEntryContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,7 +77,7 @@ export default class FoodEntryContainer extends Component {
       );
     }
   };
-  render() {
+  render(){
     return (
       <FoodEntryView
         onChange={this.handleChange}
@@ -89,18 +89,13 @@ export default class FoodEntryContainer extends Component {
   }
 }
 
-// // Map state to props;
-// const mapStateToProps = (state) => {
-//   return {
-//     allFood: state.food,
-//     username: state.username,
-//   };
-// };
 
-// // // Map dispatch to props;
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     showFood: (username) => dispatch(showFoodThunk(username)),
-//     deleteFood: (id) => dispatch(deleteFoodThunk(id)),
-//   };
-// };
+// // Map dispatch to props;
+const mapDispatch = (dispatch, ownProps) => {
+  return {
+    addFood: (food) => dispatch(addFoodThunk(food, ownProps)),
+    deleteFood: (id) => dispatch(deleteFoodThunk(id)),
+  };
+};
+
+export default connect(null, mapDispatch)(FoodEntryContainer);

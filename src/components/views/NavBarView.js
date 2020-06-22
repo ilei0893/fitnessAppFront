@@ -1,11 +1,12 @@
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Button from "react-bootstrap/Button"
 import { Link } from "react-router-dom";
 import { NavBarContainer } from "../containers";
 
 const NavBarView = (props) => {
-  const { isLoggedIn } = props;
+  let { isLoggedIn } = props;
   console.log(isLoggedIn);
   if (!isLoggedIn) {
     return (
@@ -17,9 +18,12 @@ const NavBarView = (props) => {
   }
   return (
     <Navbar bg="dark" variant="dark">
-      <Link to="/foods" className="nav-link">
+      <Link to="/food" className="nav-link">
         Foods
       </Link>
+      <Button>Food Entries</Button>
+      <Nav className="ml-auto"/>
+        {/* <Link pullRight to="/login" onClick={isLoggedIn = false}>Sign Out</Link> */}
     </Navbar>
   );
 };

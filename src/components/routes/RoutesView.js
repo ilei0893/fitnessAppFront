@@ -1,11 +1,17 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Login, Signup, FoodContainer, NavBarContainer } from '../containers';
 import ExerciseView from '../views/ExerciseView';
 import ExerciseContainer from '../containers/ExerciseContainer';
+import { 
+  Login,
+  Signup,
+  FoodContainer,
+  NavBarContainer,
+  FoodEntryContainer
+} from '../containers';
 
 const RoutesView = (props) => {
-  const { isLoggedIn, username } = props;
+  const { isLoggedIn, username, foodEntryView } = props;
   return (
     <Switch>
       <Route exact path="/login" render={() => (
@@ -26,7 +32,7 @@ const RoutesView = (props) => {
           {/* Routes placed within this section are only available after
           logging in */}
           <>
-            <NavBarContainer isLoggedIn = {isLoggedIn}/>
+            <NavBarContainer isLoggedIn = {isLoggedIn} foodEntryView = {foodEntryView}/>
             <Route exact path="/food" component={FoodContainer} />
             <Route exact path="/exercises" component={ExerciseContainer} />
           </>

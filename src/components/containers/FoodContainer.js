@@ -6,17 +6,17 @@ import axios from 'axios';
 
 // Smart container;
 class FoodContainer extends Component {
-  constructor(props)
-  {
-    super(props);
-    this.state = {
-      username: "johndoe98",
-    }
-  }
+  // constructor(props)
+  // {
+  //   super(props);
+  //   this.state = {
+  //     username: "",
+  //   }
+  // }
   componentDidMount() {
     console.log("hello from componentdidmount");
     console.log(this.props);
-    this.props.showFood(this.state.username);
+    this.props.showFood(this.props.username);
     console.log(this.props);
   }
   
@@ -26,6 +26,7 @@ class FoodContainer extends Component {
 
   render() {
     console.log("--------------",this.props.username)
+    console.log(this.props.allFood);
     return (
       <FoodView 
         allFood={this.props.allFood}
@@ -38,11 +39,12 @@ class FoodContainer extends Component {
 
 // Map state to props;
 const mapStateToProps = (state) => {
+  console.log(state, "mapstate");
   return {
     allFood: state.food,
-    username: state.username,
+    username: state.user.username
   };
-}; 
+};
 
 // // Map dispatch to props;
 const mapDispatchToProps = (dispatch) => {
