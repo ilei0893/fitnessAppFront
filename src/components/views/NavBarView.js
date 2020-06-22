@@ -24,7 +24,10 @@ const NavBarView = (props) => {
         Exercises
       </Link>
       <Link to="/foodEntries" classname="nav-link">
-        Foods
+        Add food
+      </Link>
+      <Link to="/exerciseEntries" classname="nav-link">
+        Add an exercise
       </Link>
       <Nav className="ml-auto"/>
         {/* <Link pullRight to="/login" onClick={isLoggedIn = false}>Sign Out</Link> */}
