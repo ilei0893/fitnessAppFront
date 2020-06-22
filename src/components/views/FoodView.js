@@ -17,7 +17,7 @@ const FoodView = (props) => {
   
   return(
     <>
-    {/* <FoodEntryContainer /> */}
+    <FoodEntryContainer />
     <div className="all-foods">
       <CardDeck>
         {props.allFood.map((food) => (
