@@ -1,5 +1,5 @@
 import React from "react";
-// import './styles/FoodView.css';
+import './styles/FoodView.css';
 // import { reduxForm, Field } from "redux-form"
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
