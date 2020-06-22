@@ -35,6 +35,7 @@ const RoutesView = (props) => {
             <NavBarContainer isLoggedIn = {isLoggedIn} foodEntryView = {foodEntryView}/>
             <Route exact path="/food" component={FoodContainer} />
             <Route exact path="/exercises" component={ExerciseContainer} />
+            <Route exact path="/foodEntries" component={FoodEntryContainer}/>
           </>
           </Switch>
       )}
