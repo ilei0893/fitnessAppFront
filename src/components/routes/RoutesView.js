@@ -7,13 +7,15 @@ import {
   Signup,
   FoodContainer,
   NavBarContainer,
-  FoodEntryContainer
+  FoodEntryContainer,
+  HomePageContainer
 } from '../containers';
 
 const RoutesView = (props) => {
   const { isLoggedIn, username, foodEntryView } = props;
   return (
     <Switch>
+      <Route exact path="/" component = {HomePageContainer} isLoggedIn = {isLoggedIn}/>
       <Route exact path="/login" render={() => (
         isLoggedIn ? (
           <div className = "food">
