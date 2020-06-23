@@ -2,7 +2,6 @@ import React from "react";
 import './styles/foodSearch.css';
 
 const FoodEntryView = (props) => {
-    // console.log(props)
   return (
     <div className="searchdiv">
       <form id="form" onSubmit={props.onSubmit}>

@@ -84,6 +84,7 @@ class FoodEntryContainer extends Component {
         <>
         <img
         src={this.state.imageUrl}
+        width="300px"
         />
         <div className="results-container">
           {results.map((result, key) => {
