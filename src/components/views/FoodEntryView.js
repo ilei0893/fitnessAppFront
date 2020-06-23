@@ -1,22 +1,22 @@
 import React from "react";
+import './styles/foodSearch.css';
 
 const FoodEntryView = (props) => {
     // console.log(props)
   return (
-    <div>
+    <div className="searchdiv">
       <form id="form" onSubmit={props.onSubmit}>
         <label className="search-label" htmlFor="search-input">
-          <p id="prompt">enter a food:</p>
           <input
             id="search-input"
             type="text"
             name="query"
             value={props.value}
-            placeholder="food"
+            placeholder="What did you eat?"
             onChange={props.onChange}
           />
         </label>
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Search" />
       </form>
       {props.render()}
     </div>

@@ -4,7 +4,7 @@ import { addFoodThunk, deleteFoodThunk } from "../../thunks";
 import { FoodEntryView } from "../views";
 import axios from "axios";
 import { isCompositeComponent } from "react-dom/test-utils";
-
+import styles from '../styles.css';
 // Smart container;
 class FoodEntryContainer extends Component {
   constructor(props) {
@@ -69,10 +69,10 @@ class FoodEntryContainer extends Component {
           {results.map((result, key) => {
             let choice = key;
             let name = result.fields.item_name;
-            let calories = result.fields.nf_calories;
-            let fat = result.fields.nf_total_fat;
-            let carbohydrates = result.fields.nf_total_carbohydrate;
-            let protein = result.fields.nf_protein;
+            let calories = Math.floor(result.fields.nf_calories);
+            let fat = Math.floor(result.fields.nf_total_fat);
+            let carbohydrates = Math.floor(result.fields.nf_total_carbohydrate);
+            let protein = Math.floor(result.fields.nf_protein);
             this.state.foodCardChoices.push({
                name : result.fields.item_name,
                calories : Math.floor(result.fields.nf_calories),
@@ -84,10 +84,10 @@ class FoodEntryContainer extends Component {
               <a key={key}>
                 <div id="individual-result" >
                   <p>{name}</p>
-                  <p>{calories}</p>
-                  <p>{fat}</p>
-                  <p>{carbohydrates}</p>
-                  <p>{protein}</p>
+                  <p>{calories} kcal</p>
+                  <p>{fat}g fat</p>
+                  <p>{carbohydrates}g carbohydrates</p>
+                  <p>{protein}g protein</p>
                   <button id="selectFood" type="select" value="select" onClick={() => this.selectFoodCard(key)}> select </button>
                 </div>
               </a>

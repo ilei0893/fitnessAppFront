@@ -30,3 +30,16 @@
     padding: 2px;
     
 }
+
+.results-container{
+    text-align: center;
+}
+
+#individual-result{
+    margin-top: 300px;
+    text-align: center;
+    border: 3px solid black;
+    height:300px;
+    width: 300px;
+    display: inline-block;
+}
