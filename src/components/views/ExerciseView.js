@@ -9,7 +9,7 @@ const ExerciseView = (props) => {
   if (!props.allExercises.length) {
     return (
       <>
-        <ExerciseEntryContainer username = {props.username}/>
+        {/* <ExerciseEntryContainer username = {props.username}/> */}
         <div className="all-exercises">No exercises</div>
       </>
     );
@@ -17,7 +17,7 @@ const ExerciseView = (props) => {
   console.log("returning username from exccersive view", props.username)
   return(
     <>
-    <ExerciseEntryContainer username = {props.username}/> 
+    {/* <ExerciseEntryContainer username = {props.username}/>  */}
     <div className="all-foods">
       <CardDeck>
         {props.allExercises.map((exercise) => (

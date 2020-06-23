@@ -95,7 +95,12 @@ class ExerciseEntryContainer extends Component{
     );
   }
 }
-
+const mapStateToProps = (state) => {
+  return {
+    allExercises: state.exercise,
+    username: state.user.username,
+  };
+}; 
 
 // // Map dispatch to props;
 const mapDispatch = (dispatch, ownProps) => {
@@ -104,4 +109,4 @@ const mapDispatch = (dispatch, ownProps) => {
   };
 };
 
-export default connect(null, mapDispatch)(ExerciseEntryContainer);
+export default connect(mapStateToProps, mapDispatch)(ExerciseEntryContainer);
