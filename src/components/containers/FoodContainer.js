@@ -2,17 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showFoodThunk, deleteFoodThunk } from "../../thunks";
 import { FoodView } from "../views";
-import axios from 'axios';
+
 
 // Smart container;
 class FoodContainer extends Component {
-  // constructor(props)
-  // {
-  //   super(props);
-  //   this.state = {
-  //     username: "",
-  //   }
-  // }
+
   componentDidMount() {
     console.log("hello from componentdidmount");
     console.log(this.props);
@@ -56,4 +50,3 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(FoodContainer);
 
-/************************************************ORIGINAL************************************************** */

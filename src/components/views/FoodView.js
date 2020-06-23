@@ -51,6 +51,4 @@ const FoodView = (props) => {
     );
 };
 
-const Search = (props) => {};
-
 export default FoodView;
