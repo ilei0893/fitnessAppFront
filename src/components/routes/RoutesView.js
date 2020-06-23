@@ -10,7 +10,7 @@ import {
   NavBarContainer,
   FoodEntryContainer,
   exerciseRoutes,
-  HomePageContainer
+  HomePageContainer,
 } from '../containers';
 
 const RoutesView = (props) => {
@@ -18,6 +18,7 @@ const RoutesView = (props) => {
   return (
     <Switch>
       <Route exact path="/" component = {HomePageContainer} isLoggedIn = {isLoggedIn}/>
+      <Route exact path="/signup" component = {Login}/>
       <Route exact path="/login" render={() => (
         isLoggedIn ? (
           <div className = "food">
