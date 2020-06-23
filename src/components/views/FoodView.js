@@ -15,10 +15,17 @@ const FoodView = (props) => {
     );
   }
 
+  const calculateTotal = () =>{
+    let totalCalsEaten = 0;
+    props.allFood.map((food) => (totalCalsEaten+=food.calories) )
+    return totalCalsEaten;
+  }
+
   return (
     <>
       <div className="all-foods">
         <h1 className="title">Your Foods</h1>
+        <center><p>Total calories eaten today: {calculateTotal()}</p></center>
         <div className="foodCards">
           <CardDeck>
             {props.allFood.map((food) => (
