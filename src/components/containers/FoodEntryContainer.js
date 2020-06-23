@@ -15,7 +15,8 @@ class FoodEntryContainer extends Component {
       loading: false,
       message: " ",
       hitSubmit: false,
-      foodCardChoices : []
+      foodCardChoices : [],
+      imageUrl : ''
     };
   }
 
@@ -57,6 +58,21 @@ class FoodEntryContainer extends Component {
           });
         }
       });
+
+      axios({
+        method: "GET",
+        url: `https://api.pexels.com/v1/search?per_page=1&query=${query}`,
+        headers: {
+          'Authorization' : "563492ad6f917000010000019b78a0fd2fb54ba996f85c4bd9925796"
+        }
+      }).then((response)=>{
+          const responseUrl = response.data.photos[0].src.tiny;
+          console.log("THE RESPONSE --------------------", response);
+          console.log("THE URL-------------", responseUrl)
+          this.setState({
+            imageUrl : responseUrl
+          })
+        })
   };
   renderSearchResults = () => {
     const results = this.state.results;
@@ -64,7 +80,12 @@ class FoodEntryContainer extends Component {
 
     if (results.length) {
       console.log("logging from render: ", results);
+
       return (
+        <>
+        <img
+        src={this.state.imageUrl}
+        />
         <div className="results-container">
           {results.map((result, key) => {
             let choice = key;
@@ -94,6 +115,7 @@ class FoodEntryContainer extends Component {
             );
           })}
         </div>
+        </>
       );
     }
   };
