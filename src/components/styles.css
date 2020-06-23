@@ -1,0 +1,32 @@
+
+.exercise-form{
+    font-size:25px;
+    color: black;
+    height: 500px;
+    width: 1000px;
+    opacity: 95%;
+    text-align: center;
+    font-family: Arial;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.radioButtons{
+    margin-right: 10px;
+    display: block;
+
+}
+.inputField{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 53px;
+    height: 30px;
+}
+#button{
+    padding: 2px;
+    
+}
