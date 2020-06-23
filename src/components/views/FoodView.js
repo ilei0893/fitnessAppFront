@@ -9,7 +9,6 @@ const FoodView = (props) => {
     return (
       <>
         <div className="all-foods">No foods</div>
-        <ExerciseContainer/>
       </>
     );
   }
@@ -40,9 +39,9 @@ const FoodView = (props) => {
                     <h2>{food.name} </h2>
                   </Card.Title>
                   <Card.Text>Calories: {food.calories}</Card.Text>
-                  <Card.Text>protein: {food.protein}</Card.Text>
-                  <Card.Text>carbs: {food.carbs}</Card.Text>
                   <Card.Text>fat: {food.fat}</Card.Text>
+                  <Card.Text>carbs: {food.carbs}</Card.Text>
+                  <Card.Text>protein: {food.protein}</Card.Text>
                   <Link className="btn btn-danger" to="/home" onClick={() => props.handleDelete(food.id)}>
                     Delete 
                   </Link>
