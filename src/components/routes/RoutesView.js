@@ -21,8 +21,8 @@ const RoutesView = (props) => {
       <Route exact path="/signup" component = {Signup}/>
       <Route exact path="/login" render={() => (
         isLoggedIn ? (
-          <div className = "food">
-            <Redirect to="/food"/>
+          <div className = "home">
+            <Redirect to="/home"/>
           </div>
         ) : (
           <div className="login">
@@ -37,7 +37,7 @@ const RoutesView = (props) => {
           logging in */}
           <>
             <NavBarContainer isLoggedIn = {isLoggedIn} foodEntryView = {foodEntryView}/>
-            <Route exact path="/food" component={FoodContainer} />
+            <Route exact path="/home" component={FoodContainer} />
             <Route exact path="/exercises" component={ExerciseContainer} />
             <Route exact path="/foodEntries" component={FoodEntryContainer}/>
             <Route exact path="/exerciseEntries" component={ExerciseEntryContainer} />

@@ -22,7 +22,7 @@ class LoginContainer extends Component {
     const formName = event.target.name;
     console.log(formName);
     this.props.loginOrSignup(this.state.username, this.state.password, formName);
-    this.props.displayUserData(this.state.username);
+
   };
 
   render() {

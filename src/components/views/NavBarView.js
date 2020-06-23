@@ -16,7 +16,7 @@ const NavBarView = (props) => {
   }
   return (
     <Navbar bg="dark" variant="dark">
-      <Link to="/food" className="nav-link">
+      <Link to="/home" className="nav-link">
         My Foods
       </Link>
       <Link to="/foodEntries" classname="nav-link">
