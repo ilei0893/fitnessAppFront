@@ -99,7 +99,8 @@ class FoodEntryContainer extends Component {
                calories : Math.floor(result.fields.nf_calories),
                fat : Math.floor(result.fields.nf_total_fat),
                carbohydrates : Math.floor(result.fields.nf_total_carbohydrate),
-               protein : Math.floor(result.fields.nf_protein)
+               protein : Math.floor(result.fields.nf_protein),
+               imageUrl : this.state.imageUrl
               })
             return (
               <a key={key}>
@@ -128,6 +129,7 @@ class FoodEntryContainer extends Component {
       fat : this.state.foodCardChoices[key].fat,
       carbs : this.state.foodCardChoices[key].carbohydrates,
       protein : this.state.foodCardChoices[key].protein,
+      imageUrl : this.state.imageUrl,
       usernameId : this.props.username
     }
     console.log("toAdd ",toAdd);
