@@ -13,6 +13,12 @@ const ExerciseView = (props) => {
       </>
     );
   }
+
+  const calculateTotal = () =>{
+    let totalCalsBurnt = 0;
+    props.allExercises.map((exercise) => (totalCalsBurnt+=exercise.calories) )
+    return totalCalsBurnt;
+  }
   console.log("returning username from exccersive view", props.username)
   return(
     <>
@@ -20,6 +26,7 @@ const ExerciseView = (props) => {
     <div className="all-foods">
       <h1 className="title">Your Exercises</h1>
       <div className="exerciseCards">
+      <center><p>Total calories burnt:{calculateTotal()}</p></center>
       <CardDeck>
         {props.allExercises.map((exercise) => (
           <Card className="card" key={exercise.name}>
