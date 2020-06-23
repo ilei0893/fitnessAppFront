@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addExerciseThunk } from "../../thunks";
 import data from '../../data/data.json';
+import styles from '../styles.css';
 
 class ExerciseEntryContainer extends Component{
   constructor(props){
@@ -74,18 +75,19 @@ class ExerciseEntryContainer extends Component{
           {options.map(option => (
           <option key={option} value={option}>{option}</option>
           ))}
-          </select>
-          <input type="text" value={this.state.timeValue} className="inputField" placeholder="how long?" onChange={this.handleChange} />
+          </select><br></br>
+          <input type="text" value={this.state.timeValue} className="inputField" placeholder="time" onChange={this.handleChange} /><br></br>
 {/* ---------------------------------------------------------------------------------------------------------------- */}
             {/* radio buttons */}
               <div className="radioButtons">
-              <input type="radio" id="low" name="intensity" value="low" onChange = {this.setIntensity}/>
-              <label htmlFor="low">low</label>
-              <input type="radio" id="med" name="intensity" value="med" onChange = {this.setIntensity} />
-              <label htmlFor="med">med</label>
-              <input type="radio" id="high" name="intensity" value="high" onChange = {this.setIntensity}/>
-              <label htmlFor="high">high</label><br></br>
-            </div>
+                <label>Intensity: </label>
+                <input type="radio" id="low" name="intensity" value="low" onChange = {this.setIntensity}/>
+                <label htmlFor="low">Low</label>
+                <input type="radio" id="medium" name="intensity" value="medium" onChange = {this.setIntensity} />
+                <label htmlFor="med">Medium</label>
+                <input type="radio" id="high" name="intensity" value="high" onChange = {this.setIntensity}/>
+                <label htmlFor="high">High</label>
+              </div>
 {/* ---------------------------------------------------------------------------------------------------------------- */}
           <input type="submit" value="Submit" />
         </form>
