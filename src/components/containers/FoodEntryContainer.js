@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import { addFoodThunk, deleteFoodThunk } from "../../thunks";
 import { FoodEntryView } from "../views";
 import axios from "axios";
-import { isCompositeComponent } from "react-dom/test-utils";
-import styles from '../styles.css';
+
 // Smart container;
 class FoodEntryContainer extends Component {
   constructor(props) {
@@ -66,7 +65,7 @@ class FoodEntryContainer extends Component {
           'Authorization' : "563492ad6f917000010000019b78a0fd2fb54ba996f85c4bd9925796"
         }
       }).then((response)=>{
-          const responseUrl = response.data.photos[0].src.tiny;
+          const responseUrl = response.data.photos[0].src.original;
           console.log("THE RESPONSE --------------------", response);
           console.log("THE URL-------------", responseUrl)
           this.setState({
