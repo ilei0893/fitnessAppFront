@@ -1,8 +1,8 @@
-.title{
-    text-align: center;
-  }
+.exerciseCards {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1em;
+  width: 80vw;
+  height: 30vw;
+}
 
-  .card{
-    width: 25rem;
-    overflow: hidden;
-  }
