@@ -6,7 +6,7 @@ class HomePageContainer extends Component {
   render() {
     return (
       <>
-        <NavBarContainer isLoggedIn={this.props.isLoggedIn} />
+        {/* <NavBarContainer isLoggedIn={this.props.isLoggedIn} /> */}
         <HomePageView />
       </>
     );

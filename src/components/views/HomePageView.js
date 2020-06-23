@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { MDBMask, MDBContainer,MDBView } from "mdbreact";
+import { Link } from "react-router-dom";
 
 const HomePageView = (props) => {
   return (
@@ -32,8 +33,20 @@ const HomePageView = (props) => {
               simple app where you can track food, nutrition, and exercises! A
               simple app where you can track food, nutrition, and exercises!
             </h5> */}
-            <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '100vh'}} className="text">
-                <h1> Welcome to FitnessHelper </h1>
+            <div className="text">
+                <p id="welcome"> Welcome to FitnessHelper </p>
+            </div>
+            <div className="buttons">
+            <div className="loginbutton">
+            <Link to="/login">
+                <button id="loginbutton">Log In</button>
+            </Link>
+            </div>
+            <div className="signupbutton">
+              <Link to="/signup">
+                <button id="signupbutton">Sign Up</button>
+              </Link>
+            </div>
             </div>
           </div>
   );
