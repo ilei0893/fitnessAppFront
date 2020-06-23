@@ -17,14 +17,17 @@ class ExerciseEntryContainer extends Component{
     this.setState({hitSubmit : false});
     console.log("calling USERNAME FROM ENTRY CONTAINER", this.props.username)
   }
+
   handleSubmit = (event) =>{
     this.setState({hitSubmit : true});
     event.preventDefault();
+    const calsBurnt = Math.floor( (data[this.state.ExerciseOption])[this.state.intensity] * this.state.timeValue );
+
     const toAdd = {
         name : this.state.ExerciseOption,
         intensity : this.state.intensity,
         time : this.state.timeValue,
-        calories : this.state.caloriesBurnt,
+        calories : calsBurnt,
         usernameId : this.props.username
     }
     this.props.addExercise(toAdd);
@@ -52,9 +55,6 @@ class ExerciseEntryContainer extends Component{
     const time = this.state.timeValue;
     const intensity = this.state.intensity;
     const calsBurnt = Math.floor( (data[exercise])[intensity] * time );
-    this.setState=({
-      caloriesBurnt : calsBurnt
-    })
     console.log("input is: ",exercise)
     console.log("time is", time)
     console.log("intensity is", intensity)
@@ -87,7 +87,7 @@ class ExerciseEntryContainer extends Component{
                 <label>Intensity: </label>
                 <input type="radio" id="low" name="intensity" value="low" onChange = {this.setIntensity}/>
                 <label htmlFor="low">Low</label>
-                <input type="radio" id="medium" name="intensity" value="medium" onChange = {this.setIntensity} />
+                <input type="radio" id="med" name="intensity" value="med" onChange = {this.setIntensity} />
                 <label htmlFor="med">Medium</label>
                 <input type="radio" id="high" name="intensity" value="high" onChange = {this.setIntensity}/>
                 <label htmlFor="high">High</label>
@@ -96,7 +96,7 @@ class ExerciseEntryContainer extends Component{
           <input type="submit" value="Submit" />
         </form>
             {/* checks if user hit submit, if they did, adds exercise to db */}
-          {this.state.hitSubmit? this.getExercises() : null} 
+          {this.state.hitSubmit? <p> Exercise Added! </p> : null} 
       </div>
     );
   }
