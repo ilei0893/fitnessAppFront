@@ -1,0 +1,12 @@
+.form {
+    width: 300px;
+    border-radius: 25px;
+    border: 1px black solid;
+    justify-content: center;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    padding: 35px;
+    margin-top: 200px;
+}
+
