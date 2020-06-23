@@ -65,7 +65,7 @@ class FoodEntryContainer extends Component {
           'Authorization' : "563492ad6f917000010000019b78a0fd2fb54ba996f85c4bd9925796"
         }
       }).then((response)=>{
-          const responseUrl = response.data.photos[0].src.original;
+          const responseUrl = response.data.photos[0].src.tiny;
           console.log("THE RESPONSE --------------------", response);
           console.log("THE URL-------------", responseUrl)
           this.setState({
@@ -134,6 +134,7 @@ class FoodEntryContainer extends Component {
     }
     console.log("toAdd ",toAdd);
     this.props.addFood(toAdd);
+    this.props.history.push("/home");
   }
   render(){
     return (
