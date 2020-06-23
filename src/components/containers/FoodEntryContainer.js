@@ -15,7 +15,8 @@ class FoodEntryContainer extends Component {
       loading: false,
       message: " ",
       hitSubmit: false,
-      foodCardChoices : []
+      foodCardChoices : [],
+      imageUrl : ''
     };
   }
 
@@ -57,6 +58,21 @@ class FoodEntryContainer extends Component {
           });
         }
       });
+
+      axios({
+        method: "GET",
+        url: `https://api.pexels.com/v1/search?per_page=1&query=${query}`,
+        headers: {
+          'Authorization' : "563492ad6f917000010000019b78a0fd2fb54ba996f85c4bd9925796"
+        }
+      }).then((response)=>{
+          const responseUrl = response.data.photos[0].src.tiny;
+          console.log("THE RESPONSE --------------------", response);
+          console.log("THE URL-------------", responseUrl)
+          this.setState({
+            imageUrl : responseUrl
+          })
+        })
   };
   renderSearchResults = () => {
     const results = this.state.results;
@@ -64,7 +80,12 @@ class FoodEntryContainer extends Component {
 
     if (results.length) {
       console.log("logging from render: ", results);
+
       return (
+        <>
+        <img
+        src={this.state.imageUrl}
+        />
         <div className="results-container">
           {results.map((result, key) => {
             let choice = key;
@@ -78,7 +99,8 @@ class FoodEntryContainer extends Component {
                calories : Math.floor(result.fields.nf_calories),
                fat : Math.floor(result.fields.nf_total_fat),
                carbohydrates : Math.floor(result.fields.nf_total_carbohydrate),
-               protein : Math.floor(result.fields.nf_protein)
+               protein : Math.floor(result.fields.nf_protein),
+               imageUrl : this.state.imageUrl
               })
             return (
               <a key={key}>
@@ -94,6 +116,7 @@ class FoodEntryContainer extends Component {
             );
           })}
         </div>
+        </>
       );
     }
   };
@@ -106,6 +129,7 @@ class FoodEntryContainer extends Component {
       fat : this.state.foodCardChoices[key].fat,
       carbs : this.state.foodCardChoices[key].carbohydrates,
       protein : this.state.foodCardChoices[key].protein,
+      imageUrl : this.state.imageUrl,
       usernameId : this.props.username
     }
     console.log("toAdd ",toAdd);
