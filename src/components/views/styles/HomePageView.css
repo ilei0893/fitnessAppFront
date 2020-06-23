@@ -8,5 +8,81 @@
 
 .text {
   color: white;
-  font-family: Arial
+  height: 500px;
+  width: 1800px;
+  opacity: 95%;
+  text-align: center;
+  font-family: Arial;
+  position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#welcome{
+  font-size: 100px;
+  color:  #e0ebeb;
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  
+}
+.loginbutton + .signupbutton {
+  margin-left: 40px;
+}
+.loginbutton{
+  text-align: center;
+  font-family: Arial;
+  opacity: 80%;
+	top:700px;
+	left: 0;
+  right: 0;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+}
+.signupbutton{
+  text-align: center;
+  font-family: Arial;
+  opacity: 80%;
+	top:700px;
+	left: 0;
+  right: 0;
+  position: relative;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+#loginbutton{
+  height: 50px;
+  width: 200px;
+  border: 0px;
+
+  border-bottom: slategray solid 5px;
+  
+  font-weight: bold;
+}
+#signupbutton{
+  height: 50px;
+  width: 200px;
+  border: 0px;
+  border-bottom: slategray solid 5px;
+  font-weight: bold;
+
+}
+
+#loginbutton:hover{
+  border-bottom: green solid 5px;
+
+}
+
+#signupbutton:hover{
+  border-bottom: green solid 5px;
+
 }
