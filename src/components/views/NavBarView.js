@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 const NavBarView = (props) => {
   let { isLoggedIn } = props;
-  console.log(isLoggedIn);
   if (!isLoggedIn) {
     return (
       <Navbar bg="dark" variant="dark">
@@ -20,17 +19,12 @@ const NavBarView = (props) => {
       <Link to="/food" className="nav-link">
         My Foods
       </Link>
-      <Link to="/exercises" className="nav-link">
-        Exercises
-      </Link>
       <Link to="/foodEntries" classname="nav-link">
         Add food
       </Link>
       <Link to="/exerciseEntries" classname="nav-link">
-        Add an exercise
+        Add exercise
       </Link>
-      <Nav className="ml-auto"/>
-        {/* <Link pullRight to="/login" onClick={isLoggedIn = false}>Sign Out</Link> */}
     </Navbar>
   );
 };

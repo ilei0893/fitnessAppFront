@@ -1,6 +1,5 @@
 import React from "react";
-// import './styles/FoodView.css';
-// import { reduxForm, Field } from "redux-form"
+import './styles/ExerciseView.css';
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
 import ExerciseEntryContainer from "../containers/ExerciseEntryContainer";
@@ -19,6 +18,7 @@ const ExerciseView = (props) => {
     <>
     {/* <ExerciseEntryContainer username = {props.username}/>  */}
     <div className="all-foods">
+      <h1 className="title">Your Exercises</h1>
       <CardDeck>
         {props.allExercises.map((exercise) => (
           <Card className="card" key={exercise.name}>

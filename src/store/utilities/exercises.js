@@ -50,7 +50,7 @@ export const addExerciseThunk = (exercise, ownProps) => (dispatch) => {
 
 export const deleteExerciseThunk = (username,id) => (dispatch) => {
   return axios
-    .delete(`/api/foods/${username}/${id}`)
+    .delete(`/api/exercises/${username}/${id}`)
     .then((res) => res.data)
     .then(() => dispatch(deleteExercise(id)))
     .catch((err) => console.log(err));
