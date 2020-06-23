@@ -43,7 +43,7 @@ export const addFoodThunk = (food, ownProps) => (dispatch) => {
     .then((newFood) => {
       const tweakedFood = { ...newFood, foods: [] };
       dispatch(addFood(tweakedFood));
-      ownProps.history.push(`/foods/${newFood.id}`);
+      // ownProps.history.push(`/foods/${newFood.id}`);
     })
     .catch((err) => console.log(err));
 };
