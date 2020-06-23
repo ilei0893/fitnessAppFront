@@ -19,6 +19,7 @@ const ExerciseView = (props) => {
     {/* <ExerciseEntryContainer username = {props.username}/>  */}
     <div className="all-foods">
       <h1 className="title">Your Exercises</h1>
+      <div className="exerciseCards">
       <CardDeck>
         {props.allExercises.map((exercise) => (
           <Card className="card" key={exercise.name}>
@@ -40,6 +41,7 @@ const ExerciseView = (props) => {
           </Card>
         ))}
       </CardDeck>
+      </div>
     </div>
 
     </>

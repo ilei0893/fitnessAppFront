@@ -51,9 +51,7 @@ const FoodView = (props) => {
         </div>
       </div>
       <div className="all-exercises">
-        <div className="exerciseCards">
-          <ExerciseContainer/>
-        </div>
+        <ExerciseContainer />
       </div>
     </>
   );

@@ -8,15 +8,8 @@ import axios from 'axios';
 
 // Smart container;
 class ExerciseContainer extends Component {
-    constructor(props){
-        super(props)
-        this.state=({
-            username : this.props.username
-        })
-    }
-
   componentDidMount() {
-    this.props.showExercise(this.state.username);
+    this.props.showExercise(this.props.username);
   }
   
   handleDelete = (id) => {
@@ -27,7 +20,7 @@ class ExerciseContainer extends Component {
     return (
       <ExerciseView 
         allExercises={this.props.allExercises}
-        username={this.state.username}
+        username={this.props.username}
         handleDelete={this.handleDelete()}
       />
     );
@@ -36,6 +29,7 @@ class ExerciseContainer extends Component {
 
 // Map state to props;
 const mapStateToProps = (state) => {
+  console.log(state);
   return {
     allExercises: state.exercise,
     username: state.user.username,
