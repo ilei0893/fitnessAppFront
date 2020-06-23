@@ -42,7 +42,7 @@ const mapStateToProps = (state) => {
   };
 }; 
 
-// // Map dispatch to props;
+// Map dispatch to props;
 const mapDispatchToProps = (dispatch) => {
   return {
     showExercise: (username) => dispatch(showExerciseThunk(username)),

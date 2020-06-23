@@ -17,8 +17,8 @@ const RoutesView = (props) => {
   const { isLoggedIn, username, foodEntryView } = props;
   return (
     <Switch>
-      <Route exact path="/" component = {HomePageContainer} isLoggedIn = {isLoggedIn}/>
-      <Route exact path="/signup" component = {Login}/>
+      <Route exact path="/" component = {HomePageContainer}/>
+      <Route exact path="/signup" component = {Signup}/>
       <Route exact path="/login" render={() => (
         isLoggedIn ? (
           <div className = "food">
@@ -26,7 +26,6 @@ const RoutesView = (props) => {
           </div>
         ) : (
           <div className="login">
-            <NavBarContainer isLoggedIn = {isLoggedIn}/>
             <Login/>
           </div>
         )
