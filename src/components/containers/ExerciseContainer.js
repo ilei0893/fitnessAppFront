@@ -4,31 +4,26 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { showExerciseThunk, deleteExerciseThunk } from "../../thunks";
 import { ExerciseView } from "../views";
-import axios from 'axios';
+
 
 // Smart container;
 class ExerciseContainer extends Component {
-    constructor(props){
-        super(props)
-        this.state=({
-            username : this.props.username
-        })
-    }
-
   componentDidMount() {
-    this.props.showExercise(this.state.username);
+    this.props.showExercise(this.props.username);
   }
   
   handleDelete = (id) => {
-    this.props.deleteExercise(id);
+    // console.log(this.props);
+    this.props.deleteExercise(this.props.username,id);
+    // this.props.history.push("/exercise");
   }
 
   render() {
     return (
       <ExerciseView 
         allExercises={this.props.allExercises}
-        username={this.state.username}
-        handleDelete={this.handleDelete()}
+        username={this.props.username}
+        handleDelete={this.handleDelete}
       />
     );
   }
@@ -46,7 +41,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     showExercise: (username) => dispatch(showExerciseThunk(username)),
-    deleteExercise: (id) => dispatch(deleteExerciseThunk(id)),
+    deleteExercise: (username,id) => dispatch(deleteExerciseThunk(username,id)),
   };
 };
 

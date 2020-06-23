@@ -20,9 +20,7 @@ class LoginContainer extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const formName = event.target.name;
-    console.log(formName);
     this.props.loginOrSignup(this.state.username, this.state.password, formName);
-
   };
 
   render() {

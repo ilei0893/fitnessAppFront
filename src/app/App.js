@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RoutesContainer from "../components/routes/RoutesContainer";
 
@@ -16,7 +17,6 @@ class App extends Component {
     return (
       <div className="app">
         <header className="app-header">
-          {/* <NavBarContainer /> */}
           <RoutesContainer />
         </header>
       </div>

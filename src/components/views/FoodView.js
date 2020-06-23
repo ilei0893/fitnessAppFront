@@ -1,12 +1,10 @@
 import React from "react";
 import "./styles/FoodView.css";
-// import { reduxForm, Field } from "redux-form"
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
-import FoodEntryContainer from "../containers/FoodEntryContainer";
 import ExerciseContainer from "../containers/ExerciseContainer";
+import {Link} from "react-router-dom";
 const FoodView = (props) => {
-  // console.log(props, "Props from foodview")
   if (!props.allFood.length) {
     return (
       <>
@@ -44,13 +42,9 @@ const FoodView = (props) => {
                   <Card.Text>protein: {food.protein}</Card.Text>
                   <Card.Text>carbs: {food.carbs}</Card.Text>
                   <Card.Text>fat: {food.fat}</Card.Text>
-                  {/* <Link
-                  className="btn btn-danger"
-                  to="/foods"
-                  onClick={() => props.handleDelete(food.id)}
-                >
-                  Delete
-                </Link> */}
+                  <Link className="btn btn-danger" to="/home" onClick={() => props.handleDelete(food.id)}>
+                    Delete 
+                  </Link>
                 </Card.Body>
               </Card>
             ))}
@@ -58,9 +52,7 @@ const FoodView = (props) => {
         </div>
       </div>
       <div className="all-exercises">
-        <div className="exerciseCards">
-          <ExerciseContainer/>
-        </div>
+        <ExerciseContainer />
       </div>
     </>
   );
