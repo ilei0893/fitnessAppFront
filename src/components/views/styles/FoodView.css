@@ -31,6 +31,12 @@
 }
 
 .card{
-  width: 25px;
+  width: 1000px !important;
   overflow: hidden;
+}
+
+.card-img-top{
+  text-align: center;
+  height: 250px;
+  width: 250px !important;
 }

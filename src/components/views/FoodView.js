@@ -28,12 +28,11 @@ const FoodView = (props) => {
           <CardDeck>
             {props.allFood.map((food) => (
               <Card className="card" key={food.name}>
-                <img
+                <center><img
                   src={food.imageUrl}
-                  width="50px"
                   alt={food.name}
                   className="card-img-top"
-                />
+                /></center>
                 <Card.Body>
                   <Card.Title>
                     <h2>{food.name} </h2>

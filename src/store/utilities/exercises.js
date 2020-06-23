@@ -43,7 +43,7 @@ export const addExerciseThunk = (exercise, ownProps) => (dispatch) => {
     .then((newExercise) => {
       const tweakedExercise = { ...newExercise, exercises: [] };
       dispatch(addExercise(tweakedExercise));
-      ownProps.history.push(`/exercises/${newExercise.id}`);
+      // ownProps.history.push(`/exercises/${newExercise.id}`);
     })
     .catch((err) => console.log(err));
 };

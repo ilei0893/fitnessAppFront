@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { addExerciseThunk } from "../../thunks";
 import data from '../../data/data.json';
 import styles from '../styles.css';
-
+import {Redirect} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 class ExerciseEntryContainer extends Component{
   constructor(props){
     super(props);
@@ -31,6 +32,8 @@ class ExerciseEntryContainer extends Component{
         usernameId : this.props.username
     }
     this.props.addExercise(toAdd);
+    this.props.history.push('/home/');
+
   }
 
   setExerciseOption = (event) =>{
@@ -115,4 +118,4 @@ const mapDispatch = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatch)(ExerciseEntryContainer);
+export default withRouter(connect(mapStateToProps, mapDispatch)(ExerciseEntryContainer));
