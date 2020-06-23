@@ -5,7 +5,6 @@ import { loginThunk, getUserThunk } from "../../thunks";
 
 class LoginContainer extends Component {
   constructor(props) {
-    // console.log("hello from constructor")
     super(props);
     this.state = {
       username: "",

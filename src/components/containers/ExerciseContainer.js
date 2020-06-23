@@ -13,9 +13,7 @@ class ExerciseContainer extends Component {
   }
   
   handleDelete = (id) => {
-    // console.log(this.props);
     this.props.deleteExercise(this.props.username,id);
-    // this.props.history.push("/exercise");
   }
 
   render() {

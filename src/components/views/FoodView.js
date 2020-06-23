@@ -9,6 +9,7 @@ const FoodView = (props) => {
     return (
       <>
         <div className="all-foods">No foods</div>
+        <ExerciseContainer/>
       </>
     );
   }
