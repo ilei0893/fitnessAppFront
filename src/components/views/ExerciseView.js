@@ -28,6 +28,7 @@ const ExerciseView = (props) => {
               </Card.Title>
               <Card.Text>Intensity: {exercise.intensity}</Card.Text>
               <Card.Text>Time: {exercise.time}</Card.Text>
+              <Card.Text>Calories Burnt: {exercise.calories}</Card.Text>
               {/* <Link
                   className="btn btn-danger"
                   to="/foods"

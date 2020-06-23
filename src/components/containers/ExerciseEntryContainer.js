@@ -7,7 +7,7 @@ import styles from '../styles.css';
 class ExerciseEntryContainer extends Component{
   constructor(props){
     super(props);
-    this.state = {timeValue: '', ExerciseOption : 'walking', intensity : '', hitSubmit : false};
+    this.state = {timeValue: '', caloriesBurnt : '', ExerciseOption : 'walking', intensity : '', hitSubmit : false};
   }
 
   handleChange = (event) =>{
@@ -24,6 +24,7 @@ class ExerciseEntryContainer extends Component{
         name : this.state.ExerciseOption,
         intensity : this.state.intensity,
         time : this.state.timeValue,
+        calories : this.state.caloriesBurnt,
         usernameId : this.props.username
     }
     this.props.addExercise(toAdd);
@@ -51,6 +52,9 @@ class ExerciseEntryContainer extends Component{
     const time = this.state.timeValue;
     const intensity = this.state.intensity;
     const calsBurnt = Math.floor( (data[exercise])[intensity] * time );
+    this.setState=({
+      caloriesBurnt : calsBurnt
+    })
     console.log("input is: ",exercise)
     console.log("time is", time)
     console.log("intensity is", intensity)
