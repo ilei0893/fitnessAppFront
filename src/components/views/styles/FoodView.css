@@ -1,10 +1,7 @@
 .all-foods {
     color: black;
   }
-  .card{
-    width: 25rem;
-    overflow: hidden;
-  }
+
   
   .body{
       background: radial-gradient(#e5e5e5,#ffff,#e5e5e5);
@@ -32,4 +29,9 @@
   margin-right: auto;
   padding-top: 1em;
   width: 1500px;
+}
+
+.card{
+  width: 25px;
+  overflow: hidden;
 }

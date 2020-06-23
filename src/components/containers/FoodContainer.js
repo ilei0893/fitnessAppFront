@@ -12,7 +12,9 @@ class FoodContainer extends Component {
   }
 
   handleDelete = (id) => {
-    this.props.deleteFood(id);
+    console.log(this.props);
+    this.props.deleteFood(this.props.username,id);
+    // this.props.history.push("/foods");
   };
 
   render() {
@@ -39,7 +41,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     showFood: (username) => dispatch(showFoodThunk(username)),
-    deleteFood: (id) => dispatch(deleteFoodThunk(id)),
+    deleteFood: (username,id) => dispatch(deleteFoodThunk(username,id)),
   };
 };
 
