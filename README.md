@@ -12,7 +12,7 @@ Frontend for our fitness App.
 * Axios - version 0.19.2
 
 ## Setup
-Clone this repository and our backend repository
+Clone this repository and our [backend](https://github.com/ilei0893/FitnessAppBack) repository
 
 ## Usage
 ```
